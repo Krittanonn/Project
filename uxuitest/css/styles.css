@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     padding: 0;
@@ -38,6 +37,7 @@ p {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative; /* เพิ่ม position relative */
 }
 
 #watthai.wat:hover {
@@ -49,17 +49,42 @@ p {
     height: 300px;
     object-fit: cover;
     display: block;
-    border-bottom: 1px solid #ccc;
+}
+
+/* เพิ่ม CSS สำหรับข้อความที่อยู่บนภาพ */
+#watthai.wat p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    z-index: 1;
+    padding: 10px 20px;
+    border-radius: 8px;
 }
 
 @media (max-width: 768px) {
     #temple.templeall {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    #watthai.wat p {
+        font-size: 20px;
+        padding: 8px 16px;
+    }
 }
 
 @media (max-width: 480px) {
     #temple.templeall {
         grid-template-columns: repeat(1, 1fr);
+    }
+    
+    #watthai.wat p {
+        font-size: 18px;
+        padding: 6px 12px;
     }
 }
